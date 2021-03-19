@@ -7,21 +7,35 @@ export default function App() {
     <SafeAreaView style={styles.droidSafeArea}>
       <View>
         <Text style={styles.textHeader}>Multiplication Tables</Text>
-        <View style={{ flex: 1, alignSelf: "stretch", flexDirection: "row" }}>
-          <View style={{ flex: 1, alignSelf: "stretch" }}>
-            <Text style={{ color: "white" }}>asd</Text>
-          </View>
-          <View style={{ flex: 1, alignSelf: "stretch" }}>
-            <Text style={{ color: "white" }}>asd</Text>
-          </View>
-          <View style={{ flex: 1, alignSelf: "stretch" }}>
-            <Text style={{ color: "white" }}>asd</Text>
-          </View>
-          <View style={{ flex: 1, alignSelf: "stretch" }}>
-            <Text style={{ color: "white" }}>asd</Text>
-          </View>
-          <View style={{ flex: 1, alignSelf: "stretch" }}>
-            <Text style={{ color: "white" }}>asd</Text>
+        <View style={{ marginTop: 20 }}>
+          <View style={{ flexDirection: "row" }}>
+            <View
+              style={{
+                width: "20%",
+                backgroundColor: "#ff0000",
+                border: "none",
+              }}
+            >
+              <Text style={{ color: "white" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "60%",
+                backgroundColor: "#000000",
+                border: "none",
+              }}
+            >
+              <Text style={{ color: "white" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "20%",
+                backgroundColor: "#00ff00",
+                border: "none",
+              }}
+            >
+              <Text style={{ color: "white" }}>asd</Text>
+            </View>
           </View>
         </View>
         <StatusBar style="auto" />
@@ -33,7 +47,7 @@ export default function App() {
 const styles = StyleSheet.create({
   droidSafeArea: {
     flex: 1,
-    backgroundColor: "#1d31a7",
+    backgroundColor: "#243266",
     paddingTop: Platform.OS === "android" ? 60 : 0,
     paddingLeft: 16,
     paddingRight: 16,
