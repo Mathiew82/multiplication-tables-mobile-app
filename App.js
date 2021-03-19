@@ -7,6 +7,23 @@ export default function App() {
     <SafeAreaView style={styles.droidSafeArea}>
       <View>
         <Text style={styles.textHeader}>Multiplication Tables</Text>
+        <View style={{ flex: 1, alignSelf: "stretch", flexDirection: "row" }}>
+          <View style={{ flex: 1, alignSelf: "stretch" }}>
+            <Text style={{ color: "white" }}>asd</Text>
+          </View>
+          <View style={{ flex: 1, alignSelf: "stretch" }}>
+            <Text style={{ color: "white" }}>asd</Text>
+          </View>
+          <View style={{ flex: 1, alignSelf: "stretch" }}>
+            <Text style={{ color: "white" }}>asd</Text>
+          </View>
+          <View style={{ flex: 1, alignSelf: "stretch" }}>
+            <Text style={{ color: "white" }}>asd</Text>
+          </View>
+          <View style={{ flex: 1, alignSelf: "stretch" }}>
+            <Text style={{ color: "white" }}>asd</Text>
+          </View>
+        </View>
         <StatusBar style="auto" />
       </View>
     </SafeAreaView>
