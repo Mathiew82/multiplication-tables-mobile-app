@@ -7,34 +7,473 @@ export default function App() {
     <SafeAreaView style={styles.droidSafeArea}>
       <View>
         <Text style={styles.textHeader}>Multiplication Tables</Text>
-        <View style={{ marginTop: 20 }}>
-          <View style={{ flexDirection: "row" }}>
+        <View
+          style={{
+            borderStyle: "solid",
+            borderWidth: 2,
+            borderColor: "#000",
+            borderRadius: 8,
+            marginTop: 20,
+          }}
+        >
+          <View
+            style={{
+              borderBottomWidth: 2,
+              borderBottomColor: "#000",
+              flexDirection: "row",
+            }}
+          >
             <View
               style={{
-                width: "20%",
-                backgroundColor: "#ff0000",
+                width: "25%",
                 border: "none",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
               }}
             >
-              <Text style={{ color: "white" }}>asd</Text>
+              <Text style={{ color: "#000" }}>asd</Text>
             </View>
             <View
               style={{
-                width: "60%",
-                backgroundColor: "#000000",
-                border: "none",
+                width: "50%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
               }}
             >
-              <Text style={{ color: "white" }}>asd</Text>
+              <Text style={{ color: "#000" }}>asd</Text>
             </View>
             <View
               style={{
-                width: "20%",
-                backgroundColor: "#00ff00",
-                border: "none",
+                width: "25%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
               }}
             >
-              <Text style={{ color: "white" }}>asd</Text>
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+          </View>
+          <View
+            style={{
+              borderBottomWidth: 2,
+              borderBottomColor: "#000",
+              flexDirection: "row",
+            }}
+          >
+            <View
+              style={{
+                width: "25%",
+                border: "none",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "50%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "25%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+          </View>
+          <View
+            style={{
+              borderBottomWidth: 2,
+              borderBottomColor: "#000",
+              flexDirection: "row",
+            }}
+          >
+            <View
+              style={{
+                width: "25%",
+                border: "none",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "50%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "25%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+          </View>
+          <View
+            style={{
+              borderBottomWidth: 2,
+              borderBottomColor: "#000",
+              flexDirection: "row",
+            }}
+          >
+            <View
+              style={{
+                width: "25%",
+                border: "none",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "50%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "25%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+          </View>
+          <View
+            style={{
+              borderBottomWidth: 2,
+              borderBottomColor: "#000",
+              flexDirection: "row",
+            }}
+          >
+            <View
+              style={{
+                width: "25%",
+                border: "none",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "50%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "25%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+          </View>
+          <View
+            style={{
+              borderBottomWidth: 2,
+              borderBottomColor: "#000",
+              flexDirection: "row",
+            }}
+          >
+            <View
+              style={{
+                width: "25%",
+                border: "none",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "50%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "25%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+          </View>
+          <View
+            style={{
+              borderBottomWidth: 2,
+              borderBottomColor: "#000",
+              flexDirection: "row",
+            }}
+          >
+            <View
+              style={{
+                width: "25%",
+                border: "none",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "50%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "25%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+          </View>
+          <View
+            style={{
+              borderBottomWidth: 2,
+              borderBottomColor: "#000",
+              flexDirection: "row",
+            }}
+          >
+            <View
+              style={{
+                width: "25%",
+                border: "none",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "50%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "25%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+          </View>
+          <View
+            style={{
+              borderBottomWidth: 2,
+              borderBottomColor: "#000",
+              flexDirection: "row",
+            }}
+          >
+            <View
+              style={{
+                width: "25%",
+                border: "none",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "50%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "25%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+          </View>
+          <View
+            style={{
+              borderBottomWidth: 2,
+              borderBottomColor: "#000",
+              flexDirection: "row",
+            }}
+          >
+            <View
+              style={{
+                width: "25%",
+                border: "none",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "50%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
+            </View>
+            <View
+              style={{
+                width: "25%",
+                borderLeftWidth: 2,
+                borderLeftColor: "#000",
+                paddingTop: 15,
+                paddingRight: 10,
+                paddingBottom: 15,
+                paddingLeft: 10,
+              }}
+            >
+              <Text style={{ color: "#000" }}>asd</Text>
             </View>
           </View>
         </View>
@@ -47,13 +486,13 @@ export default function App() {
 const styles = StyleSheet.create({
   droidSafeArea: {
     flex: 1,
-    backgroundColor: "#243266",
+    backgroundColor: "#de2",
     paddingTop: Platform.OS === "android" ? 60 : 0,
     paddingLeft: 16,
     paddingRight: 16,
   },
   textHeader: {
-    color: "#fff",
+    color: "#000",
     fontSize: 30,
     textAlign: "center",
   },
