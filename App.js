@@ -22,7 +22,7 @@ export default function App() {
           }}
         >
           {rows.map((row, index) => (
-            <Row firstValue={currentTable} secondValue={index} />
+            <Row firstValue={currentTable} secondValue={index} key={index} />
           ))}
         </View>
         <StatusBar style="auto" />
