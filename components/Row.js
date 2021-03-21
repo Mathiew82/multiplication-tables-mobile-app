@@ -22,7 +22,14 @@ export default function Row(props) {
           paddingLeft: 10,
         }}
       >
-        <Text style={{ color: "#000" }}>
+        <Text
+          style={{
+            color: "#000",
+            fontSize: 18,
+            fontWeight: "bold",
+            textAlign: "center",
+          }}
+        >
           {firstValue} x {secondValue + 1}
         </Text>
       </View>
@@ -36,9 +43,7 @@ export default function Row(props) {
           paddingBottom: 15,
           paddingLeft: 10,
         }}
-      >
-        <Text style={{ color: "#000" }}>B</Text>
-      </View>
+      ></View>
       <View
         style={{
           width: "25%",
@@ -50,7 +55,17 @@ export default function Row(props) {
           paddingLeft: 10,
         }}
       >
-        <Text style={{ color: "#000" }}>C</Text>
+        <Text
+          style={{
+            color: "#000",
+            fontSize: 18,
+            fontWeight: "bold",
+            textAlign: "center",
+            transform: [{ rotate: "90deg" }],
+          }}
+        >
+          : |
+        </Text>
       </View>
     </View>
   );

@@ -13,6 +13,7 @@ export default function App() {
         <Text style={styles.textHeader}>Multiplication Tables</Text>
         <View
           style={{
+            backgroundColor: "cyan",
             borderStyle: "solid",
             borderWidth: 2,
             borderColor: "#000",
