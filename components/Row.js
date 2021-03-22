@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import { StyleSheet, Text, View, TextInput, Button, Alert } from "react-native";
 
 export default function Row(props) {
   const { firstValue, secondValue } = props;
@@ -27,14 +27,22 @@ export default function Row(props) {
           width: "60%",
           borderLeftWidth: 2,
           borderLeftColor: "#000",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
           ...styles.td,
         }}
       >
         <TextInput
           style={styles.input}
           onChangeText={onChangeText}
-          placeholder="Introduce un valor"
+          placeholder="Responde aquí"
           value={text}
+        />
+        <Button
+          title="Corregir"
+          onPress={() => Alert.alert("Simple Button pressed")}
         />
       </View>
       <View
@@ -75,11 +83,17 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   input: {
-    width: "65%",
-    height: 40,
+    height: 32,
     margin: 12,
+    backgroundColor: "#8ff",
     borderWidth: 1,
-    margin: 0,
+    borderColor: "#089",
+    borderRadius: 2,
+    flex: 1,
+    marginTop: 0,
+    marginRight: 10,
+    marginBottom: 0,
+    marginLeft: 0,
     paddingRight: 10,
     paddingLeft: 10,
   },
