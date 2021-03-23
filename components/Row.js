@@ -37,6 +37,7 @@ export default function Row(props) {
         <TextInput
           style={styles.input}
           onChangeText={onChangeText}
+          keyboardType="numeric"
           placeholder="Responde aquí"
           value={text}
         />
