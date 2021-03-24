@@ -44,6 +44,7 @@ export default function Row(props) {
         <Button
           title="Corregir"
           onPress={() => Alert.alert("Simple Button pressed")}
+          color="#267"
         />
       </View>
       <View
@@ -86,11 +87,11 @@ const styles = StyleSheet.create({
   },
   input: {
     width: "60%",
-    height: 32,
+    height: 33,
     margin: 12,
     backgroundColor: "#8ff",
     borderWidth: 1,
-    borderColor: "#089",
+    borderColor: "#267",
     borderRadius: 2,
     flex: 1,
     marginTop: 0,
