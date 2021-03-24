@@ -73,6 +73,7 @@ export default function Row(props) {
 
 const styles = StyleSheet.create({
   tr: {
+    width: "100%",
     borderBottomWidth: 2,
     borderBottomColor: "#000",
     flexDirection: "row",
@@ -84,6 +85,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   input: {
+    width: "60%",
     height: 32,
     margin: 12,
     backgroundColor: "#8ff",

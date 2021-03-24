@@ -1,32 +1,39 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { Platform, SafeAreaView, StyleSheet, Text, View } from "react-native";
-import SelectInput from "react-native-select-input-ios";
+import { Picker } from "@react-native-picker/picker";
 import Row from "./components/Row";
 
 export default function App() {
-  const [currentTable, setCurrentTable] = useState(2);
+  const [currentTable, setCurrentTable] = useState(1);
   const options = [
-    { value: "", label: "Selecciona la tabla" },
-    { value: 1, label: "1" },
-    { value: 2, label: "2" },
-    { value: 3, label: "3" },
-    { value: 4, label: "4" },
-    { value: 5, label: "5" },
-    { value: 6, label: "6" },
-    { value: 7, label: "7" },
-    { value: 8, label: "8" },
-    { value: 9, label: "9" },
-    { value: 10, label: "10" },
+    { id: 0, value: "", label: "Selecciona la tabla" },
+    { id: 1, value: 1, label: "1" },
+    { id: 2, value: 2, label: "2" },
+    { id: 3, value: 3, label: "3" },
+    { id: 4, value: 4, label: "4" },
+    { id: 5, value: 5, label: "5" },
+    { id: 6, value: 6, label: "6" },
+    { id: 7, value: 7, label: "7" },
+    { id: 8, value: 8, label: "8" },
+    { id: 9, value: 9, label: "9" },
+    { id: 10, value: 10, label: "10" },
   ];
   const rows = new Array(10).fill(0);
+  const [selectedLanguage, setSelectedLanguage] = useState("");
+
+  const valueChange = (itemValue) => {
+    setCurrentTable(itemValue);
+  };
 
   return (
     <SafeAreaView style={styles.droidSafeArea}>
       <View>
         <Text style={styles.textHeader}>Multiplication Tables</Text>
-        <SelectInput
+        <View
           style={{
+            width: "100%",
+            height: 50,
             backgroundColor: "white",
             borderStyle: "solid",
             borderWidth: 2,
@@ -34,10 +41,28 @@ export default function App() {
             borderRadius: 30,
             marginTop: 10,
             paddingLeft: 12,
+            zIndex: 0,
           }}
-          value={0}
-          options={options}
-        />
+        >
+          <Picker
+            style={{
+              width: "100%",
+              height: 45,
+              paddingLeft: 12,
+              zIndex: 1,
+            }}
+            selectedValue={selectedLanguage}
+            onValueChange={(itemValue) => setCurrentTable(itemValue)}
+          >
+            {options.map((item) => (
+              <Picker.Item
+                label={item.label}
+                value={item.value}
+                key={item.id}
+              />
+            ))}
+          </Picker>
+        </View>
         <View
           style={{
             backgroundColor: "cyan",
