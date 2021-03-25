@@ -1,6 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { Platform, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import {
+  Platform,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Alert,
+} from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import Row from "./components/Row";
 
@@ -77,6 +85,27 @@ export default function App() {
             <Row firstValue={currentTable} secondValue={index} key={index} />
           ))}
         </View>
+        <Text
+          style={{
+            width: "100%",
+            height: 50,
+            backgroundColor: "white",
+            borderStyle: "solid",
+            borderWidth: 2,
+            borderColor: "#000",
+            borderRadius: 30,
+            color: "#000",
+            fontSize: 22,
+            fontWeight: "bold",
+            marginTop: 20,
+            paddingTop: 11,
+            paddingLeft: 12,
+            textAlign: "center",
+          }}
+          onPress={() => Alert.alert("Simple Button pressed")}
+        >
+          Corregir todo
+        </Text>
         <StatusBar style="auto" />
       </View>
     </SafeAreaView>
