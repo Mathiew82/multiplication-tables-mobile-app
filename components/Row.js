@@ -41,11 +41,23 @@ export default function Row(props) {
           placeholder="Responde aquí"
           value={text}
         />
-        <Button
-          title="Corregir"
+        <Text
+          style={{
+            width: "35%",
+            height: 33,
+            margin: 0,
+            backgroundColor: "#df0",
+            borderWidth: 1,
+            borderColor: "#267",
+            borderRadius: 2,
+            fontWeight: "bold",
+            paddingTop: 8,
+            textAlign: "center",
+          }}
           onPress={() => Alert.alert("Simple Button pressed")}
-          color="#267"
-        />
+        >
+          Corregir
+        </Text>
       </View>
       <View
         style={{
@@ -88,14 +100,13 @@ const styles = StyleSheet.create({
   input: {
     width: "60%",
     height: 33,
-    margin: 12,
-    backgroundColor: "#8ff",
+    backgroundColor: "#fff",
     borderWidth: 1,
     borderColor: "#267",
     borderRadius: 2,
     flex: 1,
     marginTop: 0,
-    marginRight: 10,
+    marginRight: 5,
     marginBottom: 0,
     marginLeft: 0,
     paddingRight: 10,
