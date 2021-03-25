@@ -2,11 +2,21 @@ import React from "react";
 import { StyleSheet, Text, View, TextInput, Button, Alert } from "react-native";
 
 export default function Row(props) {
-  const { firstValue, secondValue } = props;
+  const { firstValue, secondValue, isLastRow } = props;
   const [text, onChangeText] = React.useState("");
 
+  const styleRow = isLastRow
+    ? {
+        ...styles.tr,
+      }
+    : {
+        ...styles.tr,
+        borderBottomWidth: 2,
+        borderBottomColor: "#000",
+      };
+
   return (
-    <View style={styles.tr}>
+    <View style={styleRow}>
       <View
         style={{
           width: "20%",
@@ -87,8 +97,6 @@ export default function Row(props) {
 const styles = StyleSheet.create({
   tr: {
     width: "100%",
-    borderBottomWidth: 2,
-    borderBottomColor: "#000",
     flexDirection: "row",
   },
   td: {
@@ -114,7 +122,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#000",
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
   },

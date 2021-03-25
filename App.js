@@ -78,11 +78,16 @@ export default function App() {
             borderWidth: 2,
             borderColor: "#000",
             borderRadius: 8,
-            marginTop: 20,
+            marginTop: 15,
           }}
         >
           {rows.map((row, index) => (
-            <Row firstValue={currentTable} secondValue={index} key={index} />
+            <Row
+              firstValue={currentTable}
+              secondValue={index}
+              isLastRow={index === 9}
+              key={index}
+            />
           ))}
         </View>
         <Text
@@ -97,7 +102,7 @@ export default function App() {
             color: "#000",
             fontSize: 22,
             fontWeight: "bold",
-            marginTop: 20,
+            marginTop: 15,
             paddingTop: 11,
             paddingLeft: 12,
             textAlign: "center",
