@@ -111,6 +111,22 @@ export default function App() {
         >
           Corregir todo
         </Text>
+        <View
+          style={{
+            marginTop: 16,
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 22,
+              fontWeight: "bold",
+              marginTop: 5,
+              textAlign: "center",
+            }}
+          >
+            Número de aciertos = 8
+          </Text>
+        </View>
         <StatusBar style="auto" />
       </View>
     </SafeAreaView>
