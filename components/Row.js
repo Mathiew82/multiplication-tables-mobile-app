@@ -21,8 +21,11 @@ export default function Row(props) {
         borderBottomColor: "#000",
       };
 
+  const textInput = React.createRef();
+
   const toCorrectOperation = () => {
     const correctResult = firstValue * secondValue;
+    textInput.current.blur();
 
     if (correctResult === Number(text)) {
       setResultValue(states.CORRECT);
@@ -64,6 +67,7 @@ export default function Row(props) {
       >
         <TextInput
           style={styles.input}
+          ref={textInput}
           onChangeText={onChangeText}
           keyboardType="numeric"
           placeholder="Responde aquí"
