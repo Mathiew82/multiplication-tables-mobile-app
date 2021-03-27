@@ -40,7 +40,7 @@ export default function App() {
 
   const setCorrectResult = (index, value) => {
     operations[index] = value;
-    setOperations(operations);
+    setOperations([...operations]);
     if (isAllCorrect()) Alert.alert("Está todo correcto");
   };
 
