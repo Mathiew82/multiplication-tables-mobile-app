@@ -8,6 +8,7 @@ export default function Row(props) {
     CORRECT: "; )",
     INCORRECT: ": (",
   };
+  const [colorState, setColorState] = useState("#777");
   const [text, onChangeText] = useState("");
   const [resultValue, setResultValue] = useState(states.UNCORRECTED);
 
@@ -28,10 +29,12 @@ export default function Row(props) {
     textInput.current.blur();
 
     if (correctResult === Number(text)) {
+      setColorState("#0a0");
       setResultValue(states.CORRECT);
       return;
     }
 
+    setColorState("#a00");
     setResultValue(states.INCORRECT);
     return;
   };
@@ -49,7 +52,12 @@ export default function Row(props) {
           ...styles.td,
         }}
       >
-        <Text style={styles.text}>
+        <Text
+          style={{
+            ...styles.text,
+            color: "#000",
+          }}
+        >
           {firstValue} x {secondValue}
         </Text>
       </View>
@@ -106,6 +114,7 @@ export default function Row(props) {
         <Text
           style={{
             ...styles.text,
+            color: colorState,
             transform: [{ rotate: "90deg" }],
           }}
         >
@@ -143,7 +152,6 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   text: {
-    color: "#000",
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
