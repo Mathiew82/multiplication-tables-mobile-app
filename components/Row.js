@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, TextInput, Alert } from "react-native";
+import { StyleSheet, Text, View, TextInput } from "react-native";
+import { states } from "../constants/states";
 
 export default function Row(props) {
   const {
@@ -10,12 +11,7 @@ export default function Row(props) {
     isLastRow,
   } = props;
 
-  const states = {
-    UNCORRECTED: ": |",
-    CORRECT: "; )",
-    INCORRECT: ": (",
-  };
-  const [colorState, setColorState] = useState("#777");
+  const [colorState, setColorState] = useState(states.UNCORRECTED.color);
   const [text, setText] = useState("");
 
   const styleRow = isLastRow
@@ -35,13 +31,13 @@ export default function Row(props) {
     textInput.current.blur();
 
     if (correctResult === Number(text)) {
-      setColorState("#0a0");
-      setCorrectResult(states.CORRECT);
+      setColorState(states.CORRECT.color);
+      setCorrectResult(states.CORRECT.str);
       return;
     }
 
-    setColorState("#a00");
-    setCorrectResult(states.INCORRECT);
+    setColorState(states.INCORRECT.color);
+    setCorrectResult(states.INCORRECT.str);
     return;
   };
 

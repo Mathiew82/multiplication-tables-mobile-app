@@ -10,13 +10,9 @@ import {
 } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import Row from "./components/Row";
+import { states } from "./constants/states";
 
 export default function App() {
-  const states = {
-    UNCORRECTED: ": |",
-    CORRECT: "; )",
-    INCORRECT: ": (",
-  };
   const options = [
     { id: 0, value: "", label: "Selecciona la tabla" },
     { id: 1, value: 1, label: "1" },
@@ -32,17 +28,17 @@ export default function App() {
   ];
   const [currentTable, setCurrentTable] = useState(1);
   const [operations, setOperations] = useState(
-    new Array(10).fill(states.UNCORRECTED)
+    new Array(10).fill(states.UNCORRECTED.str)
   );
-
-  const valueChange = (itemValue) => {
-    setCurrentTable(itemValue);
-  };
 
   const setCorrectResult = (index, value) => {
     let currentOperations = [...operations];
     currentOperations[index] = value;
     setOperations(currentOperations);
+  };
+
+  const correctAll = () => {
+    Alert.alert("Corregir todo");
   };
 
   return (
@@ -120,7 +116,7 @@ export default function App() {
             paddingLeft: 12,
             textAlign: "center",
           }}
-          onPress={() => Alert.alert("Simple Button pressed")}
+          onPress={() => correctAll()}
         >
           Corregir todo
         </Text>
