@@ -27,18 +27,25 @@ export default function App() {
     { id: 10, value: 10, label: "10" },
   ];
   const [currentTable, setCurrentTable] = useState(1);
+  const [correctAllProp, setCorrectAllProp] = useState(false);
   const [operations, setOperations] = useState(
     new Array(10).fill(states.UNCORRECTED.str)
   );
 
+  const isAllCorrect = () => {
+    return (
+      operations.filter((item) => item === states.CORRECT.str).length === 10
+    );
+  };
+
   const setCorrectResult = (index, value) => {
-    let currentOperations = [...operations];
-    currentOperations[index] = value;
-    setOperations(currentOperations);
+    operations[index] = value;
+    setOperations(operations);
+    if (isAllCorrect()) Alert.alert("Está todo correcto");
   };
 
   const correctAll = () => {
-    Alert.alert("Corregir todo");
+    setCorrectAllProp(true);
   };
 
   return (
@@ -90,6 +97,9 @@ export default function App() {
         >
           {operations.map((row, index) => (
             <Row
+              correct={correctAllProp}
+              setCorrect={() => setCorrectAllProp(false)}
+              isAllCorrect={() => isAllCorrect()}
               correctResult={row}
               setCorrectResult={(value) => setCorrectResult(index, value)}
               firstValue={currentTable}

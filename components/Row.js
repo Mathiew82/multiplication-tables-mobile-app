@@ -1,9 +1,12 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, Text, View, TextInput, Alert } from "react-native";
 import { states } from "../constants/states";
 
 export default function Row(props) {
   const {
+    correct,
+    setCorrect,
+    isAllCorrect,
     correctResult,
     setCorrectResult,
     firstValue,
@@ -33,13 +36,19 @@ export default function Row(props) {
     if (correctResult === Number(text)) {
       setColorState(states.CORRECT.color);
       setCorrectResult(states.CORRECT.str);
-      return;
+    } else {
+      setColorState(states.INCORRECT.color);
+      setCorrectResult(states.INCORRECT.str);
     }
-
-    setColorState(states.INCORRECT.color);
-    setCorrectResult(states.INCORRECT.str);
-    return;
+    isAllCorrect();
   };
+
+  useEffect(() => {
+    if (correct) {
+      toCorrectOperation();
+      if (isLastRow) setCorrect();
+    }
+  }, [props]);
 
   return (
     <View style={styleRow}>
