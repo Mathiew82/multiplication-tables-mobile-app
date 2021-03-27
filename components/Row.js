@@ -1,9 +1,15 @@
-import React from "react";
-import { StyleSheet, Text, View, TextInput, Button, Alert } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, View, TextInput, Alert } from "react-native";
 
 export default function Row(props) {
   const { firstValue, secondValue, isLastRow } = props;
-  const [text, onChangeText] = React.useState("");
+  const states = {
+    UNCORRECTED: ": |",
+    CORRECT: "; )",
+    INCORRECT: ": (",
+  };
+  const [text, onChangeText] = useState("");
+  const [resultValue, setResultValue] = useState(states.UNCORRECTED);
 
   const styleRow = isLastRow
     ? {
@@ -14,6 +20,18 @@ export default function Row(props) {
         borderBottomWidth: 2,
         borderBottomColor: "#000",
       };
+
+  const toCorrectOperation = () => {
+    const correctResult = firstValue * secondValue;
+
+    if (correctResult === Number(text)) {
+      setResultValue(states.CORRECT);
+      return;
+    }
+
+    setResultValue(states.INCORRECT);
+    return;
+  };
 
   return (
     <View style={styleRow}>
@@ -29,7 +47,7 @@ export default function Row(props) {
         }}
       >
         <Text style={styles.text}>
-          {firstValue} x {secondValue + 1}
+          {firstValue} x {secondValue}
         </Text>
       </View>
       <View
@@ -64,7 +82,7 @@ export default function Row(props) {
             paddingTop: 8,
             textAlign: "center",
           }}
-          onPress={() => Alert.alert("Simple Button pressed")}
+          onPress={() => toCorrectOperation()}
         >
           Corregir
         </Text>
@@ -87,7 +105,7 @@ export default function Row(props) {
             transform: [{ rotate: "90deg" }],
           }}
         >
-          : |
+          {resultValue}
         </Text>
       </View>
     </View>

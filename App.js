@@ -84,7 +84,7 @@ export default function App() {
           {rows.map((row, index) => (
             <Row
               firstValue={currentTable}
-              secondValue={index}
+              secondValue={index + 1}
               isLastRow={index === 9}
               key={index}
             />
