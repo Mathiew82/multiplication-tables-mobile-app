@@ -6,14 +6,17 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
   Alert,
 } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import Row from "./components/Row";
 
 export default function App() {
-  const [currentTable, setCurrentTable] = useState(1);
+  const states = {
+    UNCORRECTED: ": |",
+    CORRECT: "; )",
+    INCORRECT: ": (",
+  };
   const options = [
     { id: 0, value: "", label: "Selecciona la tabla" },
     { id: 1, value: 1, label: "1" },
@@ -27,11 +30,19 @@ export default function App() {
     { id: 9, value: 9, label: "9" },
     { id: 10, value: 10, label: "10" },
   ];
-  const rows = new Array(10).fill(0);
-  const [selectedLanguage, setSelectedLanguage] = useState("");
+  const [currentTable, setCurrentTable] = useState(1);
+  const [operations, setOperations] = useState(
+    new Array(10).fill(states.UNCORRECTED)
+  );
 
   const valueChange = (itemValue) => {
     setCurrentTable(itemValue);
+  };
+
+  const setCorrectResult = (index, value) => {
+    let currentOperations = [...operations];
+    currentOperations[index] = value;
+    setOperations(currentOperations);
   };
 
   return (
@@ -59,7 +70,7 @@ export default function App() {
               paddingLeft: 12,
               zIndex: 1,
             }}
-            selectedValue={selectedLanguage}
+            selectedValue=""
             onValueChange={(itemValue) => setCurrentTable(itemValue)}
           >
             {options.map((item) => (
@@ -81,8 +92,10 @@ export default function App() {
             marginTop: 15,
           }}
         >
-          {rows.map((row, index) => (
+          {operations.map((row, index) => (
             <Row
+              correctResult={row}
+              setCorrectResult={(value) => setCorrectResult(index, value)}
               firstValue={currentTable}
               secondValue={index + 1}
               isLastRow={index === 9}

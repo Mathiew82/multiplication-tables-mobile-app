@@ -2,15 +2,21 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, TextInput, Alert } from "react-native";
 
 export default function Row(props) {
-  const { firstValue, secondValue, isLastRow } = props;
+  const {
+    correctResult,
+    setCorrectResult,
+    firstValue,
+    secondValue,
+    isLastRow,
+  } = props;
+
   const states = {
     UNCORRECTED: ": |",
     CORRECT: "; )",
     INCORRECT: ": (",
   };
   const [colorState, setColorState] = useState("#777");
-  const [text, onChangeText] = useState("");
-  const [resultValue, setResultValue] = useState(states.UNCORRECTED);
+  const [text, setText] = useState("");
 
   const styleRow = isLastRow
     ? {
@@ -30,12 +36,12 @@ export default function Row(props) {
 
     if (correctResult === Number(text)) {
       setColorState("#0a0");
-      setResultValue(states.CORRECT);
+      setCorrectResult(states.CORRECT);
       return;
     }
 
     setColorState("#a00");
-    setResultValue(states.INCORRECT);
+    setCorrectResult(states.INCORRECT);
     return;
   };
 
@@ -76,7 +82,7 @@ export default function Row(props) {
         <TextInput
           style={styles.input}
           ref={textInput}
-          onChangeText={onChangeText}
+          onChangeText={setText}
           keyboardType="numeric"
           placeholder="Responde aquí"
           value={text}
@@ -118,7 +124,7 @@ export default function Row(props) {
             transform: [{ rotate: "90deg" }],
           }}
         >
-          {resultValue}
+          {correctResult}
         </Text>
       </View>
     </View>
