@@ -15,7 +15,7 @@ export default function Row(props) {
 
   const [colorState, setColorState] = useState(states.UNCORRECTED.color);
   const [text, setText] = useState("");
-
+  const textInput = React.createRef();
   const styleRow = isLastRow
     ? {
         ...styles.tr,
@@ -26,8 +26,6 @@ export default function Row(props) {
         borderBottomColor: "#000",
       };
 
-  const textInput = React.createRef();
-
   const toCorrectOperation = () => {
     const correctResult = firstValue * secondValue;
     textInput.current.blur();
@@ -35,10 +33,11 @@ export default function Row(props) {
     if (correctResult === Number(text)) {
       setColorState(states.CORRECT.color);
       setCorrectResult(states.CORRECT.str);
-    } else {
-      setColorState(states.INCORRECT.color);
-      setCorrectResult(states.INCORRECT.str);
+      return;
     }
+
+    setColorState(states.INCORRECT.color);
+    setCorrectResult(states.INCORRECT.str);
   };
 
   useEffect(() => {

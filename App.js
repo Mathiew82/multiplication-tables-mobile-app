@@ -13,6 +13,11 @@ import { states } from "./constants/states";
 import Row from "./components/Row";
 
 export default function App() {
+  const [currentTable, setCurrentTable] = useState(1);
+  const [correctAllProp, setCorrectAllProp] = useState(false);
+  const [operations, setOperations] = useState(
+    new Array(10).fill(states.UNCORRECTED.str)
+  );
   const options = [
     { id: 0, value: "", label: "Selecciona la tabla" },
     { id: 1, value: 1, label: "1" },
@@ -26,11 +31,6 @@ export default function App() {
     { id: 9, value: 9, label: "9" },
     { id: 10, value: 10, label: "10" },
   ];
-  const [currentTable, setCurrentTable] = useState(1);
-  const [correctAllProp, setCorrectAllProp] = useState(false);
-  const [operations, setOperations] = useState(
-    new Array(10).fill(states.UNCORRECTED.str)
-  );
 
   const countHits = () => {
     return operations.filter((item) => item === states.CORRECT.str).length;
@@ -39,11 +39,10 @@ export default function App() {
   const setCorrectResult = (index, value) => {
     operations[index] = value;
     setOperations([...operations]);
-    if (countHits() === 10) Alert.alert("Está todo correcto");
-  };
 
-  const correctAll = () => {
-    setCorrectAllProp(true);
+    if (countHits() === 10) {
+      Alert.alert("Está todo correcto");
+    }
   };
 
   return (
@@ -79,7 +78,10 @@ export default function App() {
             />
           ))}
         </View>
-        <Text style={styles.correctAllBtn} onPress={() => correctAll()}>
+        <Text
+          style={styles.correctAllBtn}
+          onPress={() => setCorrectAllProp(true)}
+        >
           Corregir todo
         </Text>
         <View style={{ marginTop: 16 }}>
