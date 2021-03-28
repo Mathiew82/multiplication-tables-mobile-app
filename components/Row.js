@@ -70,7 +70,7 @@ export default function Row(props) {
           value={value}
         />
         <Text style={styles.btn} onPress={() => correct()}>
-          {value}
+          Corregir
         </Text>
       </View>
       <View

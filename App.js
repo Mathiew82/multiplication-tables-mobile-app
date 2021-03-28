@@ -64,23 +64,39 @@ export default function App() {
     setOperations(generateOperations(itemValue));
   };
 
+  const checkIfTheOperationIsCorrect = (item) => {
+    const isCorrect = Number(item.value) === item.firstValue * item.secondValue;
+
+    item.currentResult = isCorrect ? states.CORRECT.str : states.INCORRECT.str;
+
+    return item;
+  };
+
+  const checkIfAllIsCorrect = (arr) => {
+    if (countHits(arr) === 10) {
+      Alert.alert("Está todo correcto");
+    }
+  };
+
   const toCorrectOperation = (index) => {
     let operationsCopy = JSON.stringify(operations);
     operationsCopy = JSON.parse(operationsCopy);
 
-    const isCorrect =
-      Number(operationsCopy[index].value) ===
-      operationsCopy[index].firstValue * operationsCopy[index].secondValue;
+    operationsCopy[index] = checkIfTheOperationIsCorrect(operationsCopy[index]);
+    setOperations(operationsCopy);
+    checkIfAllIsCorrect(operationsCopy);
+  };
 
-    operationsCopy[index].currentResult = isCorrect
-      ? states.CORRECT.str
-      : states.INCORRECT.str;
+  const toCorrectAll = () => {
+    let operationsCopy = JSON.stringify(operations);
+    operationsCopy = JSON.parse(operationsCopy);
+
+    operationsCopy.forEach((item, index) => {
+      item = checkIfTheOperationIsCorrect(item);
+    });
 
     setOperations(operationsCopy);
-
-    if (countHits(operationsCopy) === 10) {
-      Alert.alert("Está todo correcto");
-    }
+    checkIfAllIsCorrect(operationsCopy);
   };
 
   return (
@@ -116,7 +132,7 @@ export default function App() {
             />
           ))}
         </View>
-        <Text style={styles.correctAllBtn} onPress={() => setCorrectAll()}>
+        <Text style={styles.correctAllBtn} onPress={() => toCorrectAll()}>
           Corregir todo
         </Text>
         <View style={{ marginTop: 16 }}>
