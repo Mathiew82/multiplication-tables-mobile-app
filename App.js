@@ -9,8 +9,8 @@ import {
   Alert,
 } from "react-native";
 import { Picker } from "@react-native-picker/picker";
-import Row from "./components/Row";
 import { states } from "./constants/states";
+import Row from "./components/Row";
 
 export default function App() {
   const options = [
@@ -32,16 +32,14 @@ export default function App() {
     new Array(10).fill(states.UNCORRECTED.str)
   );
 
-  const isAllCorrect = () => {
-    return (
-      operations.filter((item) => item === states.CORRECT.str).length === 10
-    );
+  const countHits = () => {
+    return operations.filter((item) => item === states.CORRECT.str).length;
   };
 
   const setCorrectResult = (index, value) => {
     operations[index] = value;
     setOperations([...operations]);
-    if (isAllCorrect()) Alert.alert("Está todo correcto");
+    if (countHits() === 10) Alert.alert("Está todo correcto");
   };
 
   const correctAll = () => {
@@ -72,7 +70,6 @@ export default function App() {
             <Row
               correct={correctAllProp}
               setCorrect={() => setCorrectAllProp(false)}
-              isAllCorrect={() => isAllCorrect()}
               correctResult={row}
               setCorrectResult={(value) => setCorrectResult(index, value)}
               firstValue={currentTable}
@@ -86,7 +83,9 @@ export default function App() {
           Corregir todo
         </Text>
         <View style={{ marginTop: 16 }}>
-          <Text style={styles.numberOfHits}>Número de aciertos = 8</Text>
+          <Text style={styles.numberOfHits}>
+            Número de aciertos = {countHits()}
+          </Text>
         </View>
         <StatusBar style="auto" />
       </View>
