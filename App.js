@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Platform,
   SafeAreaView,
@@ -14,9 +14,20 @@ import Row from "./components/Row";
 
 export default function App() {
   const [currentTable, setCurrentTable] = useState(1);
-  const [correctAllProp, setCorrectAllProp] = useState(false);
+  const generateOperations = (newValue) => {
+    let result = [];
+    for (let i = 0, lgt = 10; i < lgt; i++) {
+      result.push({
+        firstValue: newValue,
+        secondValue: i + 1,
+        value: "",
+        currentResult: states.UNCORRECTED.str,
+      });
+    }
+    return result;
+  };
   const [operations, setOperations] = useState(
-    new Array(10).fill(states.UNCORRECTED.str)
+    generateOperations(currentTable)
   );
   const options = [
     { id: 0, value: "", label: "Selecciona la tabla" },
@@ -32,15 +43,42 @@ export default function App() {
     { id: 10, value: 10, label: "10" },
   ];
 
-  const countHits = () => {
-    return operations.filter((item) => item === states.CORRECT.str).length;
+  const countHits = (arr) => {
+    return arr.filter((item) => item.currentResult === states.CORRECT.str)
+      .length;
   };
 
-  const setCorrectResult = (index, value) => {
-    operations[index] = value;
-    setOperations([...operations]);
+  const modifyArrayValue = (index, key, value) => {
+    let operationsCopy = JSON.stringify(operations);
+    operationsCopy = JSON.parse(operationsCopy);
+    operationsCopy[index][key] = value;
+    setOperations(operationsCopy);
+  };
 
-    if (countHits() === 10) {
+  const setValue = (index, value) => {
+    modifyArrayValue(index, "value", value);
+  };
+
+  const changeTable = (itemValue) => {
+    setCurrentTable(itemValue);
+    setOperations(generateOperations(itemValue));
+  };
+
+  const toCorrectOperation = (index) => {
+    let operationsCopy = JSON.stringify(operations);
+    operationsCopy = JSON.parse(operationsCopy);
+
+    const isCorrect =
+      Number(operationsCopy[index].value) ===
+      operationsCopy[index].firstValue * operationsCopy[index].secondValue;
+
+    operationsCopy[index].currentResult = isCorrect
+      ? states.CORRECT.str
+      : states.INCORRECT.str;
+
+    setOperations(operationsCopy);
+
+    if (countHits(operationsCopy) === 10) {
       Alert.alert("Está todo correcto");
     }
   };
@@ -53,7 +91,7 @@ export default function App() {
           <Picker
             style={styles.select}
             selectedValue=""
-            onValueChange={(itemValue) => setCurrentTable(itemValue)}
+            onValueChange={(itemValue) => changeTable(itemValue)}
           >
             {options.map((item) => (
               <Picker.Item
@@ -67,26 +105,23 @@ export default function App() {
         <View style={styles.table}>
           {operations.map((row, index) => (
             <Row
-              correct={correctAllProp}
-              setCorrect={() => setCorrectAllProp(false)}
-              correctResult={row}
-              setCorrectResult={(value) => setCorrectResult(index, value)}
-              firstValue={currentTable}
-              secondValue={index + 1}
+              correct={() => toCorrectOperation(index)}
+              value={row.value}
+              setValue={(value) => setValue(index, value)}
+              firstValue={row.firstValue}
+              secondValue={row.secondValue}
+              currentResult={row.currentResult}
               isLastRow={index === 9}
               key={index}
             />
           ))}
         </View>
-        <Text
-          style={styles.correctAllBtn}
-          onPress={() => setCorrectAllProp(true)}
-        >
+        <Text style={styles.correctAllBtn} onPress={() => setCorrectAll()}>
           Corregir todo
         </Text>
         <View style={{ marginTop: 16 }}>
           <Text style={styles.numberOfHits}>
-            Número de aciertos = {countHits()}
+            Número de aciertos = {countHits(operations)}
           </Text>
         </View>
         <StatusBar style="auto" />

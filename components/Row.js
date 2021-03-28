@@ -1,21 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import { states } from "../constants/states";
 
 export default function Row(props) {
   const {
     correct,
-    setCorrect,
-    correctResult,
-    setCorrectResult,
+    value,
+    setValue,
     firstValue,
     secondValue,
+    currentResult,
     isLastRow,
   } = props;
 
-  const [colorState, setColorState] = useState(states.UNCORRECTED.color);
-  const [text, setText] = useState("");
   const textInput = React.createRef();
+
+  const colorState = () => {
+    switch (currentResult) {
+      case states.CORRECT.str:
+        return states.CORRECT.color;
+        break;
+      case states.INCORRECT.str:
+        return states.INCORRECT.color;
+        break;
+      default:
+        return states.UNCORRECTED.color;
+    }
+  };
+
   const styleRow = isLastRow
     ? {
         ...styles.tr,
@@ -25,27 +37,6 @@ export default function Row(props) {
         borderBottomWidth: 2,
         borderBottomColor: "#000",
       };
-
-  const toCorrectOperation = () => {
-    const correctResult = firstValue * secondValue;
-    textInput.current.blur();
-
-    if (correctResult === Number(text)) {
-      setColorState(states.CORRECT.color);
-      setCorrectResult(states.CORRECT.str);
-      return;
-    }
-
-    setColorState(states.INCORRECT.color);
-    setCorrectResult(states.INCORRECT.str);
-  };
-
-  useEffect(() => {
-    if (correct) {
-      toCorrectOperation();
-      if (isLastRow) setCorrect();
-    }
-  }, [props]);
 
   return (
     <View style={styleRow}>
@@ -73,13 +64,13 @@ export default function Row(props) {
         <TextInput
           style={styles.input}
           ref={textInput}
-          onChangeText={setText}
+          onChangeText={setValue}
           keyboardType="numeric"
           placeholder="Responde aquí"
-          value={text}
+          value={value}
         />
-        <Text style={styles.btn} onPress={() => toCorrectOperation()}>
-          Corregir
+        <Text style={styles.btn} onPress={() => correct()}>
+          {value}
         </Text>
       </View>
       <View
@@ -91,11 +82,11 @@ export default function Row(props) {
         <Text
           style={{
             ...styles.text,
-            color: colorState,
+            color: colorState(),
             transform: [{ rotate: "90deg" }],
           }}
         >
-          {correctResult}
+          {currentResult}
         </Text>
       </View>
     </View>
