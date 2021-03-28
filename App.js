@@ -74,7 +74,7 @@ export default function App() {
 
   const checkIfAllIsCorrect = (arr) => {
     if (countHits(arr) === 10) {
-      Alert.alert("Está todo correcto");
+      Alert.alert("Todo correcto!! Lo has hecho muy bien ;)");
     }
   };
 
