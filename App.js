@@ -52,27 +52,9 @@ export default function App() {
     <SafeAreaView style={styles.droidSafeArea}>
       <View>
         <Text style={styles.textHeader}>Multiplication Tables</Text>
-        <View
-          style={{
-            width: "100%",
-            height: 50,
-            backgroundColor: "white",
-            borderStyle: "solid",
-            borderWidth: 2,
-            borderColor: "#000",
-            borderRadius: 30,
-            marginTop: 10,
-            paddingLeft: 12,
-            zIndex: 0,
-          }}
-        >
+        <View style={styles.wrapperSelect}>
           <Picker
-            style={{
-              width: "100%",
-              height: 45,
-              paddingLeft: 12,
-              zIndex: 1,
-            }}
+            style={styles.select}
             selectedValue=""
             onValueChange={(itemValue) => setCurrentTable(itemValue)}
           >
@@ -85,16 +67,7 @@ export default function App() {
             ))}
           </Picker>
         </View>
-        <View
-          style={{
-            backgroundColor: "cyan",
-            borderStyle: "solid",
-            borderWidth: 2,
-            borderColor: "#000",
-            borderRadius: 8,
-            marginTop: 15,
-          }}
-        >
+        <View style={styles.table}>
           {operations.map((row, index) => (
             <Row
               correct={correctAllProp}
@@ -109,42 +82,11 @@ export default function App() {
             />
           ))}
         </View>
-        <Text
-          style={{
-            width: "100%",
-            height: 50,
-            backgroundColor: "white",
-            borderStyle: "solid",
-            borderWidth: 2,
-            borderColor: "#000",
-            borderRadius: 30,
-            color: "#000",
-            fontSize: 22,
-            fontWeight: "bold",
-            marginTop: 15,
-            paddingTop: 11,
-            paddingLeft: 12,
-            textAlign: "center",
-          }}
-          onPress={() => correctAll()}
-        >
+        <Text style={styles.correctAllBtn} onPress={() => correctAll()}>
           Corregir todo
         </Text>
-        <View
-          style={{
-            marginTop: 16,
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 22,
-              fontWeight: "bold",
-              marginTop: 5,
-              textAlign: "center",
-            }}
-          >
-            Número de aciertos = 8
-          </Text>
+        <View style={{ marginTop: 16 }}>
+          <Text style={styles.numberOfHits}>Número de aciertos = 8</Text>
         </View>
         <StatusBar style="auto" />
       </View>
@@ -163,6 +105,54 @@ const styles = StyleSheet.create({
   textHeader: {
     color: "#000",
     fontSize: 30,
+    textAlign: "center",
+  },
+  wrapperSelect: {
+    width: "100%",
+    height: 50,
+    backgroundColor: "white",
+    borderStyle: "solid",
+    borderWidth: 2,
+    borderColor: "#000",
+    borderRadius: 30,
+    marginTop: 10,
+    paddingLeft: 12,
+    zIndex: 0,
+  },
+  select: {
+    width: "100%",
+    height: 45,
+    paddingLeft: 12,
+    zIndex: 1,
+  },
+  table: {
+    backgroundColor: "cyan",
+    borderStyle: "solid",
+    borderWidth: 2,
+    borderColor: "#000",
+    borderRadius: 8,
+    marginTop: 15,
+  },
+  correctAllBtn: {
+    width: "100%",
+    height: 50,
+    backgroundColor: "white",
+    borderStyle: "solid",
+    borderWidth: 2,
+    borderColor: "#000",
+    borderRadius: 30,
+    color: "#000",
+    fontSize: 22,
+    fontWeight: "bold",
+    marginTop: 15,
+    paddingTop: 11,
+    paddingLeft: 12,
+    textAlign: "center",
+  },
+  numberOfHits: {
+    fontSize: 22,
+    fontWeight: "bold",
+    marginTop: 5,
     textAlign: "center",
   },
 });

@@ -54,12 +54,7 @@ export default function Row(props) {
     <View style={styleRow}>
       <View
         style={{
-          width: "20%",
-          border: "none",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
+          ...styles.tdLeft,
           ...styles.td,
         }}
       >
@@ -74,13 +69,7 @@ export default function Row(props) {
       </View>
       <View
         style={{
-          width: "60%",
-          borderLeftWidth: 2,
-          borderLeftColor: "#000",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
+          ...styles.tdCenter,
           ...styles.td,
         }}
       >
@@ -92,33 +81,13 @@ export default function Row(props) {
           placeholder="Responde aquí"
           value={text}
         />
-        <Text
-          style={{
-            width: "35%",
-            height: 33,
-            margin: 0,
-            backgroundColor: "#df0",
-            borderWidth: 1,
-            borderColor: "#267",
-            borderRadius: 2,
-            fontWeight: "bold",
-            paddingTop: 8,
-            textAlign: "center",
-          }}
-          onPress={() => toCorrectOperation()}
-        >
+        <Text style={styles.btn} onPress={() => toCorrectOperation()}>
           Corregir
         </Text>
       </View>
       <View
         style={{
-          width: "20%",
-          borderLeftWidth: 2,
-          borderLeftColor: "#000",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
+          ...styles.tdRight,
           ...styles.td,
         }}
       >
@@ -147,6 +116,31 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     paddingLeft: 10,
   },
+  tdLeft: {
+    width: "20%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  tdCenter: {
+    width: "60%",
+    borderLeftWidth: 2,
+    borderLeftColor: "#000",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  tdRight: {
+    width: "20%",
+    borderLeftWidth: 2,
+    borderLeftColor: "#000",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   input: {
     width: "60%",
     height: 33,
@@ -161,6 +155,18 @@ const styles = StyleSheet.create({
     marginLeft: 0,
     paddingRight: 10,
     paddingLeft: 10,
+  },
+  btn: {
+    width: "35%",
+    height: 33,
+    margin: 0,
+    backgroundColor: "#df0",
+    borderWidth: 1,
+    borderColor: "#267",
+    borderRadius: 2,
+    fontWeight: "bold",
+    paddingTop: 8,
+    textAlign: "center",
   },
   text: {
     fontSize: 20,
