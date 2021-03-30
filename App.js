@@ -5,6 +5,7 @@ import {
   SafeAreaView,
   StyleSheet,
   Text,
+  ScrollView,
   View,
   Alert,
 } from "react-native";
@@ -101,7 +102,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.droidSafeArea}>
-      <View>
+      <ScrollView>
         <Text style={styles.textHeader}>Multiplication Tables</Text>
         <View style={styles.wrapperSelect}>
           <Picker
@@ -141,7 +142,7 @@ export default function App() {
           </Text>
         </View>
         <StatusBar style="auto" />
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -208,6 +209,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: "bold",
     marginTop: 5,
+    marginBottom: 30,
     textAlign: "center",
   },
 });
